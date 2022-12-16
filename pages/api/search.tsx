@@ -1,8 +1,10 @@
 import { Hash } from 'crypto';
 import React from 'react';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 import { loadGetInitialProps } from '../../node_modules/next/dist/shared/lib/utils';
 import Link from '../../node_modules/next/link';
-import { useRouter } from '../../node_modules/next/router'
+import { Router, useRouter } from '../../node_modules/next/router'
+import RenderDay from '../posts/aoc-day';
 
 export interface Props{
     list?:string[],
@@ -58,7 +60,23 @@ class Search extends React.Component<Props,State>{
                     </section>
                     <section className='Section'>
                         {this.state.filterlist.map((item : string)=>(
-                            <><li key={item}> <a href="../posts/aoc-day"> Day {item} </a> </li>  </>
+                            //<><li key={item}> <a href="../posts/aoc-day"> Day {item} </a> </li>  </>
+                            /* 
+                            router.push({
+                                    pathname : "../posts/aoc-day",
+                                    query    : { day : item}
+                                    })
+
+                            */
+                            <><li key={item}> {
+                                    <Link 
+                                     href={{
+                                    pathname: "../posts/aoc-day",
+                                    query: {day : item}, // the data
+                                    }}>
+                                    Day: {item}
+                                    </Link>    
+                                } </li> </>
                         ))}
                     </section>
                 </div>

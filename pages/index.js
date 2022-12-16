@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <h1 className="title">
           <Link href="posts/fist-post">
-            <a> AoC 22 </a>
+            AoC 22 
           </Link>
           <Search/>
         </h1>

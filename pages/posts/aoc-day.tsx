@@ -1,4 +1,7 @@
+import React from 'react';
 import Link from '../../node_modules/next/link';
+import { Router, useRouter } from '../../node_modules/next/router'
+
 /*
 const Moon = () => {
     return (
@@ -7,17 +10,25 @@ const Moon = () => {
 }
 */
 
-export default function RenderDay({ day }){
+
+export default function RenderDay() {
+    const router = useRouter();
+    const data = router.query;
+    
+    console.log(data)
+    
     return (
-    <>
-        <h1 > 
-            day {day.number}
-        </h1>
-        <h2>    
-            <Link href="..">
-                <a>Back home</a> 
-            </Link>
-        </h2>
-    </> 
+        <>
+            <h1 >
+            Rendering page for Day: {data.day} 
+            </h1>
+            <h2>
+                <Link href="..">
+                    Back home
+                </Link>
+            </h2>
+        </>
     );
 }
+
+
