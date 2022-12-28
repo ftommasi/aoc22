@@ -1,7 +1,5 @@
 import { Hash } from 'crypto';
 import React from 'react';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
-import { loadGetInitialProps } from '../../node_modules/next/dist/shared/lib/utils';
 import Link from '../../node_modules/next/link';
 import { Router, useRouter } from '../../node_modules/next/router'
 import RenderDay from '../posts/aoc-day';
